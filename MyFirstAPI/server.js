@@ -80,6 +80,10 @@ app.delete("/turtles/:index", (req, res) =>{
     res.json(turtles)
 })
 
+app.delete('/turtles', (req, res) => {
+    Product.deleteOne({ name: req.body.name }, function(err, deletedProduct) {})
+    res.json(Product);
+})
 //SEED DATA URL
 
 app.get( '/seed' , ( req, res ) => {
