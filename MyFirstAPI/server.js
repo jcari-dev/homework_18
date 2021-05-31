@@ -73,16 +73,12 @@ app.put("/turtles/:_id", (req, res) =>{
     })
 })
 
-app.delete("/turtles/:index", (req, res) =>{
 
-    turtles.splice(req.params.index, 1)
 
-    res.json(turtles)
-})
-
-app.delete('/turtles', (req, res) => {
-    Product.deleteOne({ name: req.body.name }, function(err, deletedProduct) {})
-    res.json(Product);
+app.delete('/turtles/:_id', (req, res) => {
+    Product.deleteOne(req.params._id, (err, deletedProduct) => {
+        res.json(Product);
+    })
 })
 //SEED DATA URL
 
