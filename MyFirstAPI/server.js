@@ -66,11 +66,11 @@ app.post("/turtles", (req, res) =>{
     })
 })
 
-app.put("/turtles/:index", (req, res) =>{
+app.put("/turtles/:_id", (req, res) =>{
 
-    turtles[req.params.index] = req.body
-
-    res.json(turtles)
+    Product.findOneAndUpdate(req.params._id, req.body, (err, editedProduct) => {
+        res.json(Product);
+    })
 })
 
 app.delete("/turtles/:index", (req, res) =>{
