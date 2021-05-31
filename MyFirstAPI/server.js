@@ -39,8 +39,13 @@ app.get("/", (req, res) => {
 })
 
 app.get("/turtles", (req, res) => {
-    //res.json let's us send a response as JSON data
-    res.json({turtles})
+    Product.find({}, (err, foundProducts) => {
+        // console.log(foundMemes)
+        res.json({
+            foundProducts
+        });
+    })
+    
 })
 
 app.get("/turtles/:index", (req, res) => {
