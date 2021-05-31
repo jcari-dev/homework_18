@@ -48,9 +48,14 @@ app.get("/turtles", (req, res) => {
     
 })
 
-app.get("/turtles/:index", (req, res) => {
+app.get("/turtles/:_id", (req, res) => {
     //res.json let's us send a response as JSON data
-    res.json(turtles[req.params.index])
+    Product.findById(req.params._id, (err, foundProducts) => {
+        // console.log(foundMemes)
+        res.json({
+            foundProducts
+        });
+    })
 })
 
 app.post("/turtles", (req, res) =>{
