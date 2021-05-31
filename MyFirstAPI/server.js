@@ -60,9 +60,10 @@ app.get("/turtles/:_id", (req, res) => {
 
 app.post("/turtles", (req, res) =>{
 
-    turtles.push(req.body)
+    Product.create([{ _id: req.body._id, name: req.body.name, description: req.body.description, img: req.body.img, price: req.body.price, qty: req.body.qty, __v: req.body.__v}], (error, createData) =>{
 
-    res.json(turtles)
+        res.json(createData)
+    })
 })
 
 app.put("/turtles/:index", (req, res) =>{
@@ -78,6 +79,8 @@ app.delete("/turtles/:index", (req, res) =>{
 
     res.json(turtles)
 })
+
+//SEED DATA URL
 
 app.get( '/seed' , ( req, res ) => {
 
