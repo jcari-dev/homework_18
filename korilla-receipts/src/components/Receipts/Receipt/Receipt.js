@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
 import receiptData from '../../../receiptData'
+import Form from '../../Form/Form'
 
-
-function Receipt() {
-    const [receipt, setReceipt] = useState(receiptData)
+function Receipt(props) {
+    const [receipt, setReceipt] = useState("")
+    
     return (
         <ul>
             {receiptData.map((item) =>(
